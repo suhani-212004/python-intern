@@ -1,12 +1,4 @@
-"""
-Student Record System (CRUD)
------------------------------
-A command-line program to Add, View, Update, and Delete student records.
-Data is persisted to a local JSON file (students.json).
 
-Run:
-    python student_record_system.py
-"""
 
 import json
 import os
@@ -23,7 +15,7 @@ FIELD_WIDTHS = {
 }
 
 
-# ----------------------------- Data Layer -----------------------------
+
 
 def load_data():
     """Load student records from the JSON file. Returns a list of dicts."""
@@ -49,7 +41,7 @@ def save_data(students):
         print(f"[Error] Could not save data: {e}")
 
 
-# ----------------------------- Validation -----------------------------
+
 
 def validate_id(student_id, students, exclude_id=None):
     """ID must be a positive integer (as string) and unique."""
@@ -96,7 +88,7 @@ def validate_email(email):
     """Email is optional; if provided, must look like a valid email."""
     email = email.strip()
     if email == "":
-        return True, ""  # optional field
+        return True, "" 
     pattern = r"^[\w.+-]+@[\w-]+\.[\w.-]+$"
     if not re.match(pattern, email):
         return False, "Email format looks invalid (expected e.g. name@example.com)."
@@ -113,7 +105,6 @@ def prompt_validated(prompt_text, validator, *validator_args):
         print(f"  -> Invalid input: {message}")
 
 
-# ----------------------------- CRUD Operations -----------------------------
 
 def find_student(students, student_id):
     for s in students:
@@ -234,7 +225,7 @@ def search_student(students):
     print(f"Found {len(results)} matching record(s).\n")
 
 
-# ----------------------------- Display -----------------------------
+
 
 def print_table(students):
     header = (
@@ -257,7 +248,6 @@ def print_table(students):
         print(row)
 
 
-# ----------------------------- Menu / Main Loop -----------------------------
 
 MENU = """
 ========= Student Record System =========
