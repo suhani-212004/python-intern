@@ -4,7 +4,7 @@ import os
 import shutil
 import sys
 
-# Map of category -> set of file extensions (lowercase, with the dot)
+
 CATEGORY_MAP = {
     "Images": {".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp", ".heic", ".tiff"},
     "Documents": {".pdf", ".doc", ".docx", ".txt", ".rtf", ".odt", ".md", ".csv", ".xlsx", ".xls", ".pptx", ".ppt"},
