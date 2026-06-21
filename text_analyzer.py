@@ -1,21 +1,8 @@
-"""
-Text Analyzer Tool
--------------------
-Analyzes a paragraph of text and reports:
-    - Word count (total and unique)
-    - Top 5 most frequent words (stopwords removed)
-    - Sentence count and length statistics (avg/min/max words per sentence)
-Results can be exported to a text file.
-
-Run:
-    python text_analyzer.py
-"""
 
 import re
 import string
 from collections import Counter
 
-# A small built-in stopword list (no external dependencies required).
 STOPWORDS = {
     "a", "an", "the", "and", "or", "but", "if", "then", "else", "of", "to",
     "in", "on", "at", "by", "for", "with", "about", "against", "between",
@@ -32,7 +19,7 @@ STOPWORDS = {
 }
 
 
-# ----------------------------- Cleaning -----------------------------
+
 
 def clean_text(text):
     """Lowercase, strip punctuation, and split into words."""
@@ -46,7 +33,7 @@ def remove_stopwords(words):
     return [w for w in words if w not in STOPWORDS]
 
 
-# ----------------------------- Analysis -----------------------------
+
 
 def split_sentences(text):
     """Split text into sentences using ., !, ? as delimiters."""
@@ -99,7 +86,7 @@ def analyze_text(text):
     return results
 
 
-# ----------------------------- Display / Export -----------------------------
+
 
 def format_report(text, results):
     lines = []
@@ -146,7 +133,7 @@ def export_report(report_text, filename="analysis_results.txt"):
         print(f"[Error] Could not export results: {e}")
 
 
-# ----------------------------- Input Helpers -----------------------------
+
 
 def get_input_text():
     """Ask the user whether to type text directly or load it from a file."""
@@ -175,7 +162,7 @@ def get_input_text():
         return text
 
 
-# ----------------------------- Main -----------------------------
+
 
 def main():
     print("=" * 50)
