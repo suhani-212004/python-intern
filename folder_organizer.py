@@ -61,12 +61,10 @@ def organize_folder(target_folder, dry_run=False):
     for entry in entries:
         full_path = os.path.join(target_folder, entry)
 
-        # Skip directories (including our own category folders) and hidden files
         if os.path.isdir(full_path):
             continue
         if entry.startswith("."):
             continue
-        # Skip the script itself if it happens to live in the target folder
         if entry == os.path.basename(__file__):
             continue
 
